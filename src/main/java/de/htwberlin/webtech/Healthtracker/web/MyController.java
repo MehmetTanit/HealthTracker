@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 public class MyController {
-    @GetMapping("/todos")
+    @GetMapping("/todoss")
     public List<HealthTracker> greeting() {
         HealthTracker entry = new HealthTracker(310, "120/80 mmHg ", 76,5000, "7 Stunden, gut", "5.7 mmol/L");
         HealthTracker entry1 = new HealthTracker(134, "110/80 mmHg ", 87,6000, "6 Stunden, genügend", "6.7 mmol/L");
