@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RequestMapping("/Users")
+
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5174", "http://127.0.0.1:5174", "https://Healthtracker-frontend.onrender.com/"})
 public class UserController {
 
-    @GetMapping()
+    @GetMapping("/Users")
     public List<User> getUsers() {
         return List.of(
                 new User(1, "Abdüs", "password1", "user1@example.com", "1990-01-01", "male"),
