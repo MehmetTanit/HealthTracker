@@ -10,6 +10,10 @@ public class HealthMetricGenerisch {
     private double value;
     private String unit;
 
+
+    public HealthMetricGenerisch() {
+    }
+
     // Konstruktor
     public HealthMetricGenerisch(int id, int userId, LocalDateTime dateRecorded, String metricType, double value, String unit) {
         this.id = id;

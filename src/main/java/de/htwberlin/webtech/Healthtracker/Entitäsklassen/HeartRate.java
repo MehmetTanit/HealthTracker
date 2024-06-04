@@ -5,12 +5,14 @@ import java.time.LocalDateTime;
 public class HeartRate extends HealthMetricGenerisch {
     private int heartRateValue;
 
+    public HeartRate() {}
+
     public HeartRate(int id, int userId, LocalDateTime dateRecorded, int heartRateValue) {
         super(id, userId, dateRecorded, "HeartRate", heartRateValue, "bpm");
         this.heartRateValue = heartRateValue;
     }
 
-    // Getter und Setter Methoden
+
     public int getHeartRateValue() {
         return heartRateValue;
     }
