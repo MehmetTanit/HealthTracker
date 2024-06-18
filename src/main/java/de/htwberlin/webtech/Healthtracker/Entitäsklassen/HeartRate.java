@@ -14,44 +14,14 @@ public class HeartRate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dateRecorded;
-    private String metricType;
-    private double value;
-    private String unit;
     private int heartRateValue;
 
     public HeartRate() {
     }
 
-    public HeartRate(LocalDateTime dateRecorded, int heartRateValue, String metricType, double value, String unit) {
+    public HeartRate(LocalDateTime dateRecorded, int heartRateValue) {
         this.dateRecorded = dateRecorded;
         this.heartRateValue = heartRateValue;
-        this.metricType = metricType;
-        this.value = value;
-        this.unit = unit;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
-    }
-
-    public String getMetricType() {
-        return metricType;
-    }
-
-    public void setMetricType(String metricType) {
-        this.metricType = metricType;
     }
 
     public LocalDateTime getDateRecorded() {
