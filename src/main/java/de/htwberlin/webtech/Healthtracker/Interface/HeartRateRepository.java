@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface HeartRateRepository extends CrudRepository<HeartRate, Integer> {
-    List<HeartRate> findAllByUserIdAndDateBetween(Integer userId, LocalDateTime startDate, LocalDateTime endDate);
+public interface HeartRateRepository extends CrudRepository<HeartRate, Long> {
     // Hier kannst du zusätzliche Abfragemethoden definieren, falls erforderlich
 }

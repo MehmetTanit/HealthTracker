@@ -9,34 +9,21 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"https://healthtracker-frontend.onrender.com"})
+@RequestMapping("/HeartRates")
 public class MyController {
 
-    private final HeartRateService heartRateService;
-
     @Autowired
-    public MyController(HeartRateService heartRateService) {
-        this.heartRateService = heartRateService;
+    HeartRateService heartRateService;
+
+    @PostMapping
+    public HeartRate createHeartRate(@RequestBody HeartRate heartRate) {
+        return heartRateService.save(heartRate);
     }
 
-    @PostMapping("/HeartRate")
-    public HeartRate addHeartRate(@RequestParam int userId, @RequestBody HeartRate heartRate) {
-        return heartRateService.addHeartRate(userId, heartRate);
+    @GetMapping
+    public List<HeartRate> getHeartRates() {
+        return heartRateService.getAllHeartRates();
     }
 
-    @GetMapping("/HeartRate")
-    public List<HeartRate> getHeartRates(@RequestParam int userId, @RequestParam String startDate, @RequestParam String endDate) {
-        LocalDateTime start = LocalDateTime.parse(startDate);
-        LocalDateTime end = LocalDateTime.parse(endDate);
-        return heartRateService.getHeartRates(userId, start, end);
-    }
-
-    @PutMapping("/HeartRate")
-    public HeartRate updateHeartRate(@RequestBody HeartRate heartRate) {
-        return heartRateService.updateHeartRate(heartRate);
-    }
-
-    @DeleteMapping("/HeartRate")
-    public void deleteHeartRate(@RequestParam int heartRateId) {
-        heartRateService.deleteHeartRate(heartRateId);
-    }
 }
