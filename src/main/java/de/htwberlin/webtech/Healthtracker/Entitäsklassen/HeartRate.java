@@ -1,7 +1,13 @@
 package de.htwberlin.webtech.Healthtracker.Entitäsklassen;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class HeartRate extends HealthMetricGenerisch {
     private int heartRateValue;
 
@@ -11,7 +17,6 @@ public class HeartRate extends HealthMetricGenerisch {
         super(id, userId, dateRecorded, "HeartRate", heartRateValue, "bpm");
         this.heartRateValue = heartRateValue;
     }
-
 
     public int getHeartRateValue() {
         return heartRateValue;
@@ -31,5 +36,3 @@ public class HeartRate extends HealthMetricGenerisch {
         this.heartRateValue = (int) value;
     }
 }
-
-

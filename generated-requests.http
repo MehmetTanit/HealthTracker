@@ -1,0 +1,11 @@
+### POST request to add a new HeartRate
+POST http://localhost:8080/HeartRate
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "heartRateValue": 80
+}
+
+### GET request to retrieve HeartRates for a specific user and date range
+GET http://localhost:8080/HeartRate?userId=1&startDate=2022-04-01T00:00:00&endDate=2022-04-30T23:59:59
