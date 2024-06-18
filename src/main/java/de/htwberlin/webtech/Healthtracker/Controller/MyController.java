@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"https://healthtracker-frontend.onrender.com"})
-@RequestMapping("/HeartRates")
+@RequestMapping("/heartrate")
 public class MyController {
 
     @Autowired
