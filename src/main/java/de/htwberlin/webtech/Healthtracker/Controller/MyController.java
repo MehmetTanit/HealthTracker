@@ -10,18 +10,17 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"https://healthtracker-frontend.onrender.com"})
-@RequestMapping("/HeartRates")
 public class MyController {
 
     @Autowired
     HeartRateService heartRateService;
 
-    @PostMapping
+    @PostMapping("/HeartRates")
     public HeartRate createHeartRate(@RequestBody HeartRate heartRate) {
         return heartRateService.save(heartRate);
     }
 
-    @GetMapping
+    @GetMapping("/HeartRates")
     public List<HeartRate> getHeartRates() {
         return heartRateService.getAllHeartRates();
     }
