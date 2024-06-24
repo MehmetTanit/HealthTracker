@@ -14,34 +14,14 @@ public class SleepPattern {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dateRecorded;
-    private double value;
-    private String unit;
-    private int sleepDuration;
+    private double sleepDuration;
 
     public SleepPattern() {
     }
 
-    public SleepPattern(LocalDateTime dateRecorded, int sleepDuration, double value, String unit) {
+    public SleepPattern(LocalDateTime dateRecorded, int sleepDuration, double value) {
         this.dateRecorded = dateRecorded;
         this.sleepDuration = sleepDuration;
-        this.value = value;
-        this.unit = unit;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
     }
 
     public LocalDateTime getDateRecorded() {
@@ -60,7 +40,7 @@ public class SleepPattern {
         this.id = id;
     }
 
-    public int getSleepDuration() {
+    public double getSleepDuration() {
         return sleepDuration;
     }
 
