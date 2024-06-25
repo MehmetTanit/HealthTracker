@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
     @Repository
     public interface BloodPressureRepository extends CrudRepository<BloodPressure, Long> {
-        // Hier kannst du zusätzliche Abfragemethoden definieren, falls erforderlich
+
     }
 

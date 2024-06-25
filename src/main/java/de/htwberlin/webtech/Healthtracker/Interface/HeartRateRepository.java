@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface HeartRateRepository extends CrudRepository<HeartRate, Long> {
-    // Hier kannst du zusätzliche Abfragemethoden definieren, falls erforderlich
+
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
     @Repository
     public interface SleepPatternRepository extends CrudRepository<SleepPattern, Long> {
-        // Hier kannst du zusätzliche Abfragemethoden definieren, falls erforderlich
+
     }
 

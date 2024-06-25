@@ -9,6 +9,6 @@ public interface StepCountRepositroy {
 
     @Repository
     public interface StepCountRepository extends CrudRepository<StepCount, Long> {
-        // Hier kannst du zusätzliche Abfragemethoden definieren, falls erforderlich
+
     }
 }

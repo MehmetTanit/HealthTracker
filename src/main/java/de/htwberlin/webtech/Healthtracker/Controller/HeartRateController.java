@@ -5,12 +5,11 @@ import de.htwberlin.webtech.Healthtracker.Serviceklassen.HeartRateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"https://healthtracker-frontend.onrender.com"})
-public class MyController {
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://healthtracker-frontend.onrender.com" })
+public class HeartRateController {
 
     @Autowired
     HeartRateService heartRateService;

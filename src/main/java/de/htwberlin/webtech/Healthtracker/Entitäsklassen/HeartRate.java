@@ -47,4 +47,13 @@ public class HeartRate {
     public void setHeartRateValue(int heartRateValue) {
         this.heartRateValue = heartRateValue;
     }
+
+    @Override
+    public String toString() {
+        return "HeartRate{" +
+                "id=" + id +
+                ", dateRecorded=" + dateRecorded +
+                ", heartRateValue=" + heartRateValue +
+                '}';
+    }
 }
