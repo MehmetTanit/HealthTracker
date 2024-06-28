@@ -1,8 +1,8 @@
 package de.htwberlin.webtech.Healthtracker.ControllerTests;
 
-import de.htwberlin.webtech.Healthtracker.Controller.HeartRateController;
-import de.htwberlin.webtech.Healthtracker.Entitäsklassen.HeartRate;
-import de.htwberlin.webtech.Healthtracker.Serviceklassen.HeartRateService;
+import de.htwberlin.webtech.Healthtracker.Controller.StepCountController;
+import de.htwberlin.webtech.Healthtracker.Entitäsklassen.StepCount;
+import de.htwberlin.webtech.Healthtracker.Serviceklassen.StepCountService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,34 +20,33 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(HeartRateController.class)
-public class HeartRateControllerTest {
+@WebMvcTest(StepCountController.class)
+public class StepCountControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
-    
     @MockBean
-    private HeartRateService heartRateService;
+    private StepCountService stepCountService;
 
     @Test
-    public void testGetHeartRates() throws Exception {
+    public void testGetStepCounts() throws Exception {
         // Test data and service mock
-        HeartRate hr1 = new HeartRate(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 70);
-        hr1.setId(1L);
+        StepCount sc1 = new StepCount(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 10000, 1.0, "steps");
+        sc1.setId(1L);
 
-        HeartRate hr2 = new HeartRate(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 75);
-        hr2.setId(2L);
+        StepCount sc2 = new StepCount(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 15000, 1.0, "steps");
+        sc2.setId(2L);
 
-        List<HeartRate> heartRates = Arrays.asList(hr1, hr2);
-        when(heartRateService.getAllHeartRates()).thenReturn(heartRates);
+        List<StepCount> stepCounts = Arrays.asList(sc1, sc2);
+        when(stepCountService.getAllStepCounts()).thenReturn(stepCounts);
 
-        // Expected result
-        String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"heartRateValue\":70}," +
-                "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"heartRateValue\":75}]";
 
-        // Perform the request and compare
-        this.mockMvc.perform(get("/HeartRates"))
+        String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"stepCount\":10000,\"value\":1.0,\"unit\":\"steps\"}," +
+                "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"stepCount\":15000,\"value\":1.0,\"unit\":\"steps\"}]";
+
+
+        this.mockMvc.perform(get("/StepCounts/stepcount"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().string(containsString(expected)));

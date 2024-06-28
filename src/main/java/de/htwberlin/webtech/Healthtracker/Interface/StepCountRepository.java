@@ -4,11 +4,7 @@ import de.htwberlin.webtech.Healthtracker.Entitäsklassen.StepCount;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-public interface StepCountRepositroy {
+@Repository
+public interface StepCountRepository extends CrudRepository<StepCount, Long> {
 
-
-    @Repository
-    public interface StepCountRepository extends CrudRepository<StepCount, Long> {
-
-    }
 }

@@ -27,6 +27,6 @@ public class SleepPatternService {
     }
 
     public void deleteSleepPattern(Long id) {
-       sleepPatternRepository.deleteById(id);
+        sleepPatternRepository.deleteById(id);
     }
 }
