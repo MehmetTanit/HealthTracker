@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface HeartRateRepository extends CrudRepository<HeartRate, Long> {
 
+    List<HeartRate> findByDateRecordedBetween(LocalDateTime startDateTime, LocalDateTime endDateTime);
 }

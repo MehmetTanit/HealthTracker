@@ -1,6 +1,5 @@
 package de.htwberlin.webtech.Healthtracker.Controller;
 
-import de.htwberlin.webtech.Healthtracker.Entitäsklassen.HeartRate;
 import de.htwberlin.webtech.Healthtracker.Entitäsklassen.SleepPattern;
 import de.htwberlin.webtech.Healthtracker.Serviceklassen.SleepPatternService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +25,13 @@ public class SleepPatternController {
         return sleepPatternService.getAllSleepPatterns();
     }
 
+    @GetMapping("/sleeppattern/{id}")
+    public SleepPattern getSleepPatternById(@PathVariable Long id) {
+        return sleepPatternService.get(id);
+    }
+
+    @DeleteMapping("/sleeppattern/{id}")
+    public void deleteSleepPattern(@PathVariable Long id) {
+        sleepPatternService.deleteSleepPattern(id);
+    }
 }

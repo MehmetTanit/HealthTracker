@@ -25,5 +25,35 @@ public class HeartRateService {
     public List<HeartRate> getAllHeartRates() {
         return (List<HeartRate>) heartRateRepository.findAll();
     }
+
+    public void deleteHeartRate(Long id) {
+        heartRateRepository.deleteById(id);
+    }
+
+    public long countHeartRates() {
+        return heartRateRepository.count();
+    }
+
+    public HeartRate updateHeartRate(Long id, HeartRate updatedHeartRate) {
+        HeartRate existingHeartRate = heartRateRepository.findById(id).orElse(null);
+        if (existingHeartRate != null) {
+            existingHeartRate.setDateRecorded(updatedHeartRate.getDateRecorded());
+            existingHeartRate.setHeartRateValue(updatedHeartRate.getHeartRateValue());
+            return heartRateRepository.save(existingHeartRate);
+        }
+        return null;
+    }
+
+    public double calculateAverageHeartRate(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        List<HeartRate> heartRates = heartRateRepository.findByDateRecordedBetween(startDateTime, endDateTime);
+        if (heartRates.isEmpty()) {
+            return 0.0;
+        }
+        int sum = heartRates.stream().mapToInt(HeartRate::getHeartRateValue).sum();
+        return (double) sum / heartRates.size();
+    }
+
+
+
 }
 
