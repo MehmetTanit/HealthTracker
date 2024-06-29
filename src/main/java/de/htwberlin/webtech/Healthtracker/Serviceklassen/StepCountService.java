@@ -28,4 +28,14 @@ public class StepCountService {
     public void deleteStepCount(Long id) {
         stepCountRepository.deleteById(id);
     }
+
+    public StepCount updateStepCount(Long id, StepCount stepCount) {
+        StepCount existingStepCount = stepCountRepository.findById(id).orElse(null);
+        if (existingStepCount != null) {
+            existingStepCount.setStepCount(stepCount.getStepCount());
+            existingStepCount.setTargetStepCount(stepCount.getTargetStepCount());
+            return stepCountRepository.save(existingStepCount);
+        }
+        return null;
+    }
 }

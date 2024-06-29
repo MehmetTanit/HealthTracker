@@ -40,5 +40,11 @@ public class StepCountController {
         StepCount stepCount = stepCountService.getStepCountById(id);
         return stepCount.getDifference();
     }
+
+    @PutMapping("/stepcount/{id}")
+    public StepCount updateStepCount(@PathVariable Long id, @RequestBody StepCount stepCount) {
+        return stepCountService.updateStepCount(id, stepCount);
+    }
 }
+
 
