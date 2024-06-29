@@ -32,10 +32,10 @@ public class BloodPressureControllerTest {
     @Test
     public void testGetBloodPressures() throws Exception {
         // Testdaten und Mock des Service
-        BloodPressure bp1 = new BloodPressure(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 120, 80, 1.0, "mmHg");
+        BloodPressure bp1 = new BloodPressure(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 120, 80);
         bp1.setId(1L);
 
-        BloodPressure bp2 = new BloodPressure(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 130, 85, 1.0, "mmHg");
+        BloodPressure bp2 = new BloodPressure(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 130, 85);
         bp2.setId(2L);
 
         List<BloodPressure> bloodPressures = Arrays.asList(bp1, bp2);
@@ -49,13 +49,9 @@ public class BloodPressureControllerTest {
                 .andExpect(jsonPath("$[0].dateRecorded").value("2023-01-01T10:00:00"))
                 .andExpect(jsonPath("$[0].systolicPressure").value(120))
                 .andExpect(jsonPath("$[0].diastolicPressure").value(80))
-                .andExpect(jsonPath("$[0].value").value(1.0))
-                .andExpect(jsonPath("$[0].unit").value("mmHg"))
                 .andExpect(jsonPath("$[1].id").value(2))
                 .andExpect(jsonPath("$[1].dateRecorded").value("2023-01-02T10:00:00"))
                 .andExpect(jsonPath("$[1].systolicPressure").value(130))
-                .andExpect(jsonPath("$[1].diastolicPressure").value(85))
-                .andExpect(jsonPath("$[1].value").value(1.0))
-                .andExpect(jsonPath("$[1].unit").value("mmHg"));
+                .andExpect(jsonPath("$[1].diastolicPressure").value(85));
     }
 }

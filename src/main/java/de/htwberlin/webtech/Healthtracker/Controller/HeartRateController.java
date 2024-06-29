@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5177", "http://127.0.0.1:5173", "https://healthtracker-frontend.onrender.com" })
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173", "https://healthtracker-frontend.onrender.com" })
 public class HeartRateController {
 
     @Autowired

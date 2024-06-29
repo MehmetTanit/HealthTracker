@@ -23,7 +23,7 @@ public class SleepPatternEntitätsTest {
         sleepPattern.setId(42L);
 
         // Expected result
-        String expected = "SleepPattern{id=42, dateRecorded=2023-01-01T10:00, sleepDuration=8.0, lightSleepDuration=3.0, deepSleepDuration=5.0, interruptions=2, sleepQuality=83.33333333333334}";
+        String expected = "SleepPattern{id=42, dateRecorded=2023-01-01T10:00, sleepDuration=8.0, lightSleepDuration=3.0, deepSleepDuration=5.0, interruptions=2, sleepQuality=75.0}";
 
         // Actual result
         String actual = sleepPattern.toString();

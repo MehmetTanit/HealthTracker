@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5177"})
+@CrossOrigin(origins = {"http://localhost:5173"})
 @RequestMapping("/StepCounts")
 public class StepCountController {
 
@@ -34,4 +34,11 @@ public class StepCountController {
     public void deleteStepCount(@PathVariable Long id) {
         stepCountService.deleteStepCount(id);
     }
+
+    @GetMapping("/stepcount/{id}/difference")
+    public int getDifference(@PathVariable Long id) {
+        StepCount stepCount = stepCountService.getStepCountById(id);
+        return stepCount.getDifference();
+    }
 }
+

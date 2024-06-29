@@ -31,7 +31,7 @@ public class StepCountServiceTest {
     void testGetStepCountById() {
         // Testdaten
         LocalDateTime dateRecorded = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var stepCount = new StepCount(dateRecorded, 10000, 1.0, "steps");
+        var stepCount = new StepCount(dateRecorded, 10000, 12000);
         stepCount.setId(42L);
 
         // Mocking des Repositories
@@ -50,7 +50,7 @@ public class StepCountServiceTest {
     void testSave() {
         // Testdaten
         LocalDateTime dateRecorded = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var stepCount = new StepCount(dateRecorded, 10000, 1.0, "steps");
+        var stepCount = new StepCount(dateRecorded, 10000, 12000);
         stepCount.setId(42L);
 
         // Mocking des Repositories
@@ -70,11 +70,11 @@ public class StepCountServiceTest {
     void testGetAllStepCounts() {
         // Testdaten
         LocalDateTime dateRecorded1 = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var stepCount1 = new StepCount(dateRecorded1, 10000, 1.0, "steps");
+        var stepCount1 = new StepCount(dateRecorded1, 10000, 12000);
         stepCount1.setId(42L);
 
         LocalDateTime dateRecorded2 = LocalDateTime.of(2023, 1, 2, 11, 0, 0);
-        var stepCount2 = new StepCount(dateRecorded2, 15000, 1.0, "steps");
+        var stepCount2 = new StepCount(dateRecorded2, 15000, 12000);
         stepCount2.setId(43L);
 
         List<StepCount> stepCounts = Arrays.asList(stepCount1, stepCount2);

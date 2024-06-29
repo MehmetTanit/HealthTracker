@@ -14,34 +14,16 @@ public class StepCount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dateRecorded;
-    private double value;
-    private String unit;
     private int stepCount;
+    private int targetStepCount;  // Neues Feld hinzugefügt
 
     public StepCount() {
     }
 
-    public StepCount(LocalDateTime dateRecorded, int stepCount,  double value, String unit) {
+    public StepCount(LocalDateTime dateRecorded, int stepCount, int targetStepCount) {
         this.dateRecorded = dateRecorded;
         this.stepCount = stepCount;
-        this.value = value;
-        this.unit = unit;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
+        this.targetStepCount = targetStepCount;  // Konstruktor angepasst
     }
 
     public LocalDateTime getDateRecorded() {
@@ -66,5 +48,28 @@ public class StepCount {
 
     public void setStepCount(int stepCount) {
         this.stepCount = stepCount;
+    }
+
+    public int getTargetStepCount() {
+        return targetStepCount;
+    }
+
+    public void setTargetStepCount(int targetStepCount) {
+        this.targetStepCount = targetStepCount;
+    }
+
+    // Methode zur Berechnung der Differenz
+    public int getDifference() {
+        return targetStepCount - stepCount;
+    }
+
+    @Override
+    public String toString() {
+        return "StepCount{" +
+                "id=" + id +
+                ", dateRecorded=" + dateRecorded +
+                ", stepCount=" + stepCount +
+                ", targetStepCount=" + targetStepCount +
+                '}';
     }
 }

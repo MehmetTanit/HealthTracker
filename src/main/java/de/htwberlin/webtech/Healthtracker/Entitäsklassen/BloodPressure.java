@@ -14,37 +14,18 @@ public class BloodPressure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime dateRecorded;
-    private double value;
-    private String unit;
     private int systolicPressure;
     private int diastolicPressure;
 
     public BloodPressure() {
     }
 
-    public BloodPressure(LocalDateTime dateRecorded, int systolicPressure, int diastolicPressure, double value, String unit) {
+    public BloodPressure(LocalDateTime dateRecorded, int systolicPressure, int diastolicPressure) {
         this.dateRecorded = dateRecorded;
         this.systolicPressure = systolicPressure;
         this.diastolicPressure = diastolicPressure;
-        this.value = value;
-        this.unit = unit;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
-    }
 
     public LocalDateTime getDateRecorded() {
         return dateRecorded;
@@ -76,5 +57,15 @@ public class BloodPressure {
 
     public void setDiastolicPressure(int diastolicPressure) {
         this.diastolicPressure = diastolicPressure;
+    }
+
+    @Override
+    public String toString() {
+        return "BloodPressure{" +
+                "id=" + id +
+                ", dateRecorded=" + dateRecorded +
+                ", systolicPressure=" + systolicPressure +
+                ", diastolicPressure=" + diastolicPressure +
+                '}';
     }
 }

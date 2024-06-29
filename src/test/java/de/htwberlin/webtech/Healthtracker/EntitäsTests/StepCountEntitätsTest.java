@@ -13,16 +13,15 @@ public class StepCountEntitätsTest {
     void testToString() {
 
         LocalDateTime dateRecorded = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        int stepCountValue = 10000;
-        double value = 1.0;
-        String unit = "steps";
+        int stepCount = 10000;
+        int targetStepCount = 12000;
 
-        StepCount stepCount = new StepCount(dateRecorded, stepCountValue, value, unit);
-        stepCount.setId(42L);
+        StepCount stepCount1 = new StepCount(dateRecorded, stepCount, targetStepCount);
+        stepCount1.setId(42L);
 
-        String expected = "StepCount{id=42, dateRecorded=2023-01-01T10:00, stepCount=10000, value=1.0, unit='steps'}";
+        String expected = "StepCount{id=42, dateRecorded=2023-01-01T10:00, stepCount=10000, targetStepCount=12000}";
 
-        String actual = stepCount.toString();
+        String actual = stepCount1.toString();
 
         assertEquals(expected, actual);
     }

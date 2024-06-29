@@ -96,4 +96,17 @@ public class SleepPattern {
     public void updateSleepQuality() {
         this.sleepQuality = calculateSleepQuality();
     }
+
+    @Override
+    public String toString() {
+        return "SleepPattern{" +
+                "id=" + id +
+                ", dateRecorded=" + dateRecorded +
+                ", sleepDuration=" + sleepDuration +
+                ", lightSleepDuration=" + lightSleepDuration +
+                ", deepSleepDuration=" + deepSleepDuration +
+                ", interruptions=" + interruptions +
+                ", sleepQuality=" + sleepQuality +
+                '}';
+    }
 }

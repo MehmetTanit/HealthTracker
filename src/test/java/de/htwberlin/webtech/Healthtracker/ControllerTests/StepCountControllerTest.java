@@ -1,5 +1,6 @@
 package de.htwberlin.webtech.Healthtracker.ControllerTests;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.htwberlin.webtech.Healthtracker.Controller.StepCountController;
 import de.htwberlin.webtech.Healthtracker.Entitäsklassen.StepCount;
 import de.htwberlin.webtech.Healthtracker.Serviceklassen.StepCountService;
@@ -29,26 +30,27 @@ public class StepCountControllerTest {
     @MockBean
     private StepCountService stepCountService;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Test
     public void testGetStepCounts() throws Exception {
         // Test data and service mock
-        StepCount sc1 = new StepCount(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 10000, 1.0, "steps");
+        StepCount sc1 = new StepCount(LocalDateTime.of(2023, 1, 1, 10, 0, 0), 10000, 12000);
         sc1.setId(1L);
 
-        StepCount sc2 = new StepCount(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 15000, 1.0, "steps");
+        StepCount sc2 = new StepCount(LocalDateTime.of(2023, 1, 2, 10, 0, 0), 15000, 17000);
         sc2.setId(2L);
 
         List<StepCount> stepCounts = Arrays.asList(sc1, sc2);
         when(stepCountService.getAllStepCounts()).thenReturn(stepCounts);
 
-
-        String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"stepCount\":10000,\"value\":1.0,\"unit\":\"steps\"}," +
-                "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"stepCount\":15000,\"value\":1.0,\"unit\":\"steps\"}]";
-
+        // Convert the expected result to a JSON string
+        String expected = objectMapper.writeValueAsString(stepCounts);
 
         this.mockMvc.perform(get("/StepCounts/stepcount"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().string(containsString(expected)));
+                .andExpect(content().json(expected));
     }
 }

@@ -31,7 +31,7 @@ public class BloodPressureServiceTest {
     void testGetBloodPressureById() {
         // Testdaten
         LocalDateTime dateRecorded = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var bloodPressure = new BloodPressure(dateRecorded, 120, 80, 1.0, "mmHg");
+        var bloodPressure = new BloodPressure(dateRecorded, 120, 80);
         bloodPressure.setId(42L);
 
         // Mocking des Repositories
@@ -51,7 +51,7 @@ public class BloodPressureServiceTest {
     void testSave() {
         // Testdaten
         LocalDateTime dateRecorded = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var bloodPressure = new BloodPressure(dateRecorded, 120, 80, 1.0, "mmHg");
+        var bloodPressure = new BloodPressure(dateRecorded, 120, 80);
         bloodPressure.setId(42L);
 
         // Mocking des Repositories
@@ -72,11 +72,11 @@ public class BloodPressureServiceTest {
     void testGetAllBloodPressures() {
         // Testdaten
         LocalDateTime dateRecorded1 = LocalDateTime.of(2023, 1, 1, 10, 0, 0);
-        var bloodPressure1 = new BloodPressure(dateRecorded1, 120, 80, 1.0, "mmHg");
+        var bloodPressure1 = new BloodPressure(dateRecorded1, 120, 80);
         bloodPressure1.setId(42L);
 
         LocalDateTime dateRecorded2 = LocalDateTime.of(2023, 1, 2, 11, 0, 0);
-        var bloodPressure2 = new BloodPressure(dateRecorded2, 130, 85, 1.0, "mmHg");
+        var bloodPressure2 = new BloodPressure(dateRecorded2, 130, 85);
         bloodPressure2.setId(43L);
 
         List<BloodPressure> bloodPressures = Arrays.asList(bloodPressure1, bloodPressure2);
