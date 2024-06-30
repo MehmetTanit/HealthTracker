@@ -28,4 +28,15 @@ public class BloodPressureService {
     public void deleteBloodPressure(Long id) {
         bloodPressureRepository.deleteById(id);
     }
+
+    public BloodPressure updateBloodPressure(Long id, BloodPressure updatedBloodPressure) {
+        BloodPressure existingBloodPressure = bloodPressureRepository.findById(id).orElse(null);
+        if (existingBloodPressure != null) {
+            existingBloodPressure.setSystolicPressure(updatedBloodPressure.getSystolicPressure());
+            existingBloodPressure.setDiastolicPressure(updatedBloodPressure.getDiastolicPressure());
+            existingBloodPressure.setDateRecorded(updatedBloodPressure.getDateRecorded());
+            return bloodPressureRepository.save(existingBloodPressure);
+        }
+        return null;
+    }
 }

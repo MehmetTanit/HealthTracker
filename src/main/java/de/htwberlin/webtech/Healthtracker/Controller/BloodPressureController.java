@@ -1,6 +1,7 @@
 package de.htwberlin.webtech.Healthtracker.Controller;
 
 import de.htwberlin.webtech.Healthtracker.Entitäsklassen.BloodPressure;
+import de.htwberlin.webtech.Healthtracker.Entitäsklassen.HeartRate;
 import de.htwberlin.webtech.Healthtracker.Serviceklassen.BloodPressureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,11 @@ public class BloodPressureController {
     @GetMapping("/bloodpressure/{id}")
     public BloodPressure getBloodPressureById(@PathVariable Long id) {
         return bloodPressureService.getBloodPressureById(id);
+    }
+
+    @PutMapping("/bloodpressure/{id}")
+    public BloodPressure updateBloodPressure(@PathVariable Long id, @RequestBody BloodPressure updatedBloodPressure) {
+        return bloodPressureService.updateBloodPressure(id, updatedBloodPressure);
     }
 
     @DeleteMapping("/bloodpressure/{id}")

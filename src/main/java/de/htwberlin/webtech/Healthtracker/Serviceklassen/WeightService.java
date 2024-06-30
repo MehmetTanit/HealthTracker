@@ -1,6 +1,5 @@
 package de.htwberlin.webtech.Healthtracker.Serviceklassen;
 
-import de.htwberlin.webtech.Healthtracker.Entitäsklassen.HeartRate;
 import de.htwberlin.webtech.Healthtracker.Entitäsklassen.Weight;
 import de.htwberlin.webtech.Healthtracker.Interface.WeightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +27,18 @@ public class WeightService {
 
     public void deleteWeight(Long id) {
         weightRepository.deleteById(id);
+    }
+
+    public Weight updateWeight(Long id, Weight updatedWeight) {
+        Weight existingWeight = weightRepository.findById(id).orElse(null);
+        if (existingWeight != null) {
+            existingWeight.setWeight(updatedWeight.getWeight());
+            existingWeight.setDateRecorded(updatedWeight.getDateRecorded());
+            existingWeight.setHeight(updatedWeight.getHeight());
+            existingWeight.setWeightGoal(updatedWeight.getWeightGoal());
+            existingWeight.setWeeklyGoal(updatedWeight.getWeeklyGoal());
+            return weightRepository.save(existingWeight);
+        }
+        return null;
     }
 }
