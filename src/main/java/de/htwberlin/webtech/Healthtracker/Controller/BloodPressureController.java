@@ -1,7 +1,6 @@
 package de.htwberlin.webtech.Healthtracker.Controller;
 
 import de.htwberlin.webtech.Healthtracker.Entitäsklassen.BloodPressure;
-import de.htwberlin.webtech.Healthtracker.Entitäsklassen.HeartRate;
 import de.htwberlin.webtech.Healthtracker.Serviceklassen.BloodPressureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.List;
 public class BloodPressureController {
 
     @Autowired
-    BloodPressureService bloodPressureService;
+    private BloodPressureService bloodPressureService;
 
     @PostMapping("/bloodpressure")
     public BloodPressure createBloodPressure(@RequestBody BloodPressure bloodPressure) {

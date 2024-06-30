@@ -11,7 +11,7 @@ import java.util.List;
 public class BloodPressureService {
 
     @Autowired
-    BloodPressureRepository bloodPressureRepository;
+    private BloodPressureRepository bloodPressureRepository;
 
     public BloodPressure save(BloodPressure bloodPressure) {
         return bloodPressureRepository.save(bloodPressure);
