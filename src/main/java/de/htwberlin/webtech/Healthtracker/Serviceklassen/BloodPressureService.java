@@ -34,7 +34,6 @@ public class BloodPressureService {
         if (existingBloodPressure != null) {
             existingBloodPressure.setSystolicPressure(updatedBloodPressure.getSystolicPressure());
             existingBloodPressure.setDiastolicPressure(updatedBloodPressure.getDiastolicPressure());
-            existingBloodPressure.setDateRecorded(updatedBloodPressure.getDateRecorded());
             return bloodPressureRepository.save(existingBloodPressure);
         }
         return null;
