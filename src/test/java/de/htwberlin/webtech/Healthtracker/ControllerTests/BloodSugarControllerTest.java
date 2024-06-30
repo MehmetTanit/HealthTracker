@@ -42,11 +42,11 @@ public class BloodSugarControllerTest {
         when(bloodSugarService.getAllBloodSugars()).thenReturn(bloodSugars);
 
         // Expected result
-        String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"bloodSugarValue\":90}," +
-                "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"bloodSugarValue\":95}]";
+        String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"bloodSugarLevel\":90}," +
+                "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"bloodSugarLevel\":95}]";
 
         // Perform the request and compare
-        this.mockMvc.perform(get("/BloodSugars"))
+        this.mockMvc.perform(get("/BloodSugar/bloodsugar"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().string(containsString(expected)));

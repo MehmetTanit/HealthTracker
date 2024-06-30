@@ -82,8 +82,8 @@ public class Weight {
     public String toString() {
         return "Weight{" +
                 "id=" + id +
+                ", dateRecorded=" + dateRecorded+
                 ", weight=" + weight +
-                ", dateRecorded=" + dateRecorded +
                 ", height=" + height +
                 ", weightGoal=" + weightGoal +
                 ", weeklyGoal=" + weeklyGoal +

@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"})
-@RequestMapping("/weight")
+@RequestMapping("/Weight")
 public class WeightController {
 
     @Autowired

@@ -48,7 +48,7 @@ public class WeightControllerTest {
                 "\"height\":1.80,\"weightGoal\":70.0,\"weeklyGoal\":0.4}]";
 
         // Perform the request and compare
-        this.mockMvc.perform(get("/Weights"))
+        this.mockMvc.perform(get("/Weight/weights"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().string(containsString(expected)));

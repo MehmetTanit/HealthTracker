@@ -20,7 +20,7 @@ public class BloodSugarEntitätsTest {
         bloodSugar.setId(1L);
 
         // Expected result
-        String expected = "BloodSugar{id=1, dateRecorded=2023-01-01T10:00, bloodSugarValue=90}";
+        String expected = "BloodSugar{id=1, dateRecorded=2023-01-01T10:00, bloodSugarLevel=90}";
 
         // Actual result
         String actual = bloodSugar.toString();

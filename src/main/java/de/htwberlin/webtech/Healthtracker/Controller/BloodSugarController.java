@@ -9,28 +9,28 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:5173"})
-@RequestMapping("/bloodsugar")
+@RequestMapping("/BloodSugar")
 public class BloodSugarController {
 
     @Autowired
     private BloodSugarService bloodSugarService;
 
-    @PostMapping("/bloodsugars")
+    @PostMapping("/bloodsugar")
     public BloodSugar createBloodSugar(@RequestBody BloodSugar bloodSugar) {
         return bloodSugarService.save(bloodSugar);
     }
 
-    @GetMapping("/bloodsugars")
+    @GetMapping("/bloodsugar")
     public List<BloodSugar> getBloodSugars() {
         return bloodSugarService.getAllBloodSugars();
     }
 
-    @GetMapping("/bloodsugars/{id}")
+    @GetMapping("/bloodsugar/{id}")
     public BloodSugar getBloodSugarById(@PathVariable Long id) {
         return bloodSugarService.get(id);
     }
 
-    @DeleteMapping("/bloodsugars/{id}")
+    @DeleteMapping("/bloodsugar/{id}")
     public void deleteBloodSugar(@PathVariable Long id) {
         bloodSugarService.deleteBloodSugar(id);
     }
