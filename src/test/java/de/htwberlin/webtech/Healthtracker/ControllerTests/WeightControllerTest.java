@@ -45,7 +45,7 @@ public class WeightControllerTest {
         String expected = "[{\"id\":1,\"dateRecorded\":\"2023-01-01T10:00:00\",\"weight\":70.5," +
                 "\"height\":1.75,\"weightGoal\":68.0,\"weeklyGoal\":0.5}," +
                 "{\"id\":2,\"dateRecorded\":\"2023-01-02T10:00:00\",\"weight\":72.0," +
-                "\"height\":1.80,\"weightGoal\":70.0,\"weeklyGoal\":0.4}]";
+                "\"height\":1.8,\"weightGoal\":70.0,\"weeklyGoal\":0.4}]";
 
         // Perform the request and compare
         this.mockMvc.perform(get("/Weight/weights"))
